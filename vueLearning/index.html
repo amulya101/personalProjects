@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJs tutorial</title>
+        <link href="styles.css" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="vue-app">
+            <p v-bind:title="message">
+                Data and methods example: {{name}}, hover over! <!--From the data-->
+            </p>
+
+            <h1>Data binding</h1>
+            <a :href="website">Example</a> <!--shorthand-->
+            <input v-bind:value="name" type="text" /> <!--full syntax for v-bind-->
+
+            <div>
+                <button v-on:click="clickEvents">Click events</button>
+                <h1 v-if="show">{{greetings}}</h1>
+            </div>
+
+            <div>
+                <label>First Name:</label>
+                <input type="text" v-model="firstName">
+                <label>Last Name:</label>
+                <input type="text" v-model="lastName">
+            </div>
+            <p>
+                Welcome to the hotel, {{firstName}} {{lastName}}
+            </p>
+
+            <div>
+                <button v-on:click="testClass=!testClass">Add class fo below text</button>
+                <p v-bind:class="compClasses">This is for testing. class is being toggled</p>
+            </div>
+
+            <!--Game below-->
+            <div id="bag_img" v-bind:class="{burst: ended}">
+
+            </div>
+            <div id="bag_health">
+                <div v-bind:style="{width: health + '%'}">
+                </div>
+            </div>
+            <div id="bag_controls">
+                <button @click="punched" v-if="!ended" class="punch">Punch</button>
+                <button @click="restart" class="reset">Reset</button>
+                <p v-show="ended">Game over, click reset to replace the bag</p>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
